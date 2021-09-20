@@ -1,0 +1,79 @@
+.main {
+   
+    border: solid 1px black;
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+}
+.sub{
+    height:50px;
+    border: solid 1px black;
+    text-align: center; 
+    padding-top:25px;
+    
+}
+button{
+    font-size: 18px;
+    border: solid 1px ;
+    border-radius:3px;
+    color: white;
+    margin: 0 60px;
+    cursor: pointer;
+}
+#clickme{
+    background-color:blue;
+}
+#reset{
+    background-color:red;
+}
+
+.container-2 , .container-3{
+    border: solid 1px black;
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+}
+#gcat{
+    background-color:green;
+    border-radius: 3px;
+}
+.flexbox-back-color{
+    background: rgba(239,197,202,1);
+}
+.flexbox{
+    
+    border: 1px solid black;
+    padding: 20px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.flexbox img{
+    margin: 10px;
+    width:100px;
+  height:100px;
+  box-shadow: 10px 11px 20px 3px rgba(163,125,163,1);
+
+}
+.flexbox3{
+    display:flex;
+    justify-content:space-around;
+    border: solid 1px black;
+}
+.flexbox3 img{
+    margin:10px;
+    width:100px;
+    height:100px;
+
+}
+.flexbox3 img:hover{
+    box-shadow: 10px 11px 20px 3px rgba(163,125,163,1);
+
+}
+.c3-human{
+    box-shadow: 10px 10px 75px 6px rgba(23,83,128,1);
+}
+.c3-bot{
+    box-shadow: 10px 10px 75px 6px rgba(184,33,41,1);
+}
