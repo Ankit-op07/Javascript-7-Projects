@@ -60,6 +60,7 @@ button{
     display:flex;
     justify-content:space-around;
     border: solid 1px black;
+    height: 120px;
 }
 .flexbox3 img{
     margin:10px;

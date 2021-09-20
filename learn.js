@@ -91,10 +91,11 @@ botChoice = numberToChoice(randToRpsInt());  /// and now the random choice is as
 
 
 
-var  result = decideWinner(humanChoice,botChoice);
+var  result = decideWinner(humanChoice,botChoice);          //this is an array containing results
 
- message = finalMessage(result);
-  //rpsFrontEnd(yourChoice.id,botChoice,message);
+ message = finalMessage(result);      // this will get an object containg message and color of the message .
+
+  rpsFrontEnd(humanChoice,botChoice,message);
 }
 
 function randToRpsInt(){
@@ -106,33 +107,50 @@ function numberToChoice(number){
 }
 
 function decideWinner(yourChoice , computerChoice){  // this is for the conditions that if i choose something and computer also then who would win
-    var rpsDataBase = {
-
-
+    var rpsDataBase = {  //this is a object in javascript
+        'rock':{'scissors':1 , 'rock':0.5,'paper':0},
+        'paper':{'rock':1 , 'paper':0.5,'scissors':0},
+        'scissors':{'paper':1 , 'scissors':0.5,'rock':0}
     };
-
-
+var yourScore = rpsDataBase[yourChoice][computerChoice];
+var computerScore = rpsDataBase[computerChoice][yourChoice];
 
     return [yourScore , computerScore];
 }
 
 
-function finalMessage(yourScore,computerScore){
+function finalMessage([yourScore,computerScore]){
     if(yourScore === 0){
-        return {'message': 'you lost!','color':'red'};
+        return {'message': 'Better luck next time!','color':'red'};  // return an object 
     }else if(yourScore === 0.5){
-        return {'message': 'draw', 'color':'yellow'};
-    }else{
+        return {'message': 'Match draw', 'color':'yellow'};
+    }else {
         return {'message': 'you won!','color':'green'};
     }
 }
-function rpsFrontEnd(humanImageChoice,botImageChoicr,finlMessage){
+function rpsFrontEnd(humanImageChoice,botImageChoice,finalMessage){
     var  imageDataBase = {
 'rock':document.getElementById('rock').src,
 'paper':document.getElementById('paper').src,  
-'scissors':document.getElementById('scissors').src,      };
+'scissors':document.getElementById('scissors').src,     
+ };
+
+ 
+ //let's remove all the  images from the
+ document.getElementById('rock').remove();
+ document.getElementById('paper').remove();
+ document.getElementById('scissors').remove();
+
+ let humanDiv = document.createElement('div');
+let botDiv = document.createElement('div');
+ let messageDiv = document.createElement('div');
+humanDiv.innerHTML = "<img src='" + imageDataBase[humanImageChoice] +"'height=100 width=100 style='    box-shadow: 10px 10px 75px 6px rgba(23,83,128,1);' >";
+messageDiv.innerHTML ="<h1 style='color: " + finalMessage['color'] + "; font-size:30px; padding:10px; '>" + finalMessage['message'] + "</h1>";
+botDiv.innerHTML = "<img src='" + imageDataBase[botImageChoice] +"' height=100 width=100 style='box-shadow: 10px 10px 75px 6px rgba(184,33,41,1);' >";
+document.getElementById('flexbox3').appendChild(humanDiv);
+document.getElementById('flexbox3').appendChild(messageDiv);
+document.getElementById('flexbox3').appendChild(botDiv);
 
 
-console.log(imageDataBase['rock']);
     }
 
